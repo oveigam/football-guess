@@ -24,7 +24,7 @@ const GuessIndicator: FC<IndicatorProps> = ({ label, isCorrect, toast, children 
       >
         <View
           className={`flex aspect-square w-full items-center justify-center rounded-full p-2 ${
-            isCorrect ? "bg-emerald-400" : "bg-slate-200"
+            isCorrect ? "bg-primary-300" : "bg-slate-200"
           }`}
         >
           {children}
@@ -87,8 +87,8 @@ const Guess: FC<Props> = ({ solution, guess }) => {
   }
 
   return (
-    <View className="mx-2 mb-4 flex gap-y-2 rounded-xl bg-white px-1 pt-0 pb-2">
-      <Text className="text-center text-2xl font-bold text-purple-400">{guess.guess.name}</Text>
+    <View className="mx-2 mb-2 flex rounded-xl bg-white px-1 pb-1">
+      <Text className="text-primary-600 mb-0.5 text-center text-2xl font-bold">{guess.guess.name}</Text>
       <View className="flex flex-row">
         <GuessIndicator label="NAT" toast={nationality} isCorrect={nationality === solution.nationality}>
           <Image

@@ -7,8 +7,8 @@ import { trpc } from "./../../utils/trpc";
 
 type UserTextProps = { text: string };
 
-const UserText: FC<UserTextProps> = ({ text }) => <Text className="font-semibold text-purple-400">{text}</Text>;
-const MeText: FC<UserTextProps> = ({ text }) => <Text className="font-bold text-purple-800">{text}</Text>;
+const UserText: FC<UserTextProps> = ({ text }) => <Text className="font-semibold text-primary-500">{text}</Text>;
+const MeText: FC<UserTextProps> = ({ text }) => <Text className="font-bold text-primary-700">{text}</Text>;
 
 interface Props {
   game: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>;
@@ -63,8 +63,8 @@ const GameLobby: FC<Props> = ({ game, myId }) => {
   return (
     <View className="flex items-center gap-y-4 py-24">
       <View className="flex flex-row">
-        <Text className="text-5xl font-bold text-purple-900">Code: </Text>
-        <Text className="text-5xl font-bold text-purple-400">{game.code}</Text>
+        <Text className="text-5xl font-bold text-primary-700">Code: </Text>
+        <Text className="text-5xl font-bold text-primary-500">{game.code}</Text>
       </View>
       <View>
         <Button label="start game" onPress={() => startGame({ gameId: game.id })} />

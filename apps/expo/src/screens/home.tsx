@@ -21,11 +21,11 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
   });
 
   return (
-    <SafeAreaView className="h-full bg-purple-50">
+    <SafeAreaView className="bg-primary-50 h-full">
       <View className="flex h-full w-full items-center justify-center gap-y-8">
         <View className="flex items-center justify-center">
-          <Text className="text-8xl font-semibold text-purple-400">Football</Text>
-          <Text className="text-8xl font-bold">Guess</Text>
+          <Text className="text-primary-500 text-8xl font-semibold">Football</Text>
+          <Text className="text-primary-700 text-8xl font-bold">Guess</Text>
         </View>
         <View className="mb-24 flex items-center gap-y-2">
           <Button
@@ -36,7 +36,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
           />
           <View className="flex flex-row items-center justify-center">
             <TextInput
-              className="mr-1 rounded-xl border border-purple-300 bg-white p-3"
+              className="border-primary-100 mr-1 rounded-xl border bg-white p-3"
               maxLength={4}
               placeholder="CODE"
               value={code}
@@ -45,7 +45,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
             <Button
               label="Join"
               onPress={() => {
-                joinLobby({ code });
+                joinLobby({ code: code.toLowerCase() });
               }}
             />
           </View>

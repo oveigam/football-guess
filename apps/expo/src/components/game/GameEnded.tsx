@@ -82,9 +82,9 @@ const GameEnded: FC<Props> = ({ gameId, guesses, myId, solution, gamePlayers }) 
   }, [guesses]);
 
   return (
-    <View className="flex gap-y-4 pt-10 pb-4">
+    <View className="flex flex-1 py-2">
       <Guess solution={guesses[guesses.length - 1].guess} guess={guesses[guesses.length - 1]} />
-      <View className="flex items-center">
+      <View className="mb-2 flex items-center">
         <Button label="Play Again" onPress={() => startGame({ gameId })} />
       </View>
       <FlatList
@@ -94,10 +94,10 @@ const GameEnded: FC<Props> = ({ gameId, guesses, myId, solution, gamePlayers }) 
         renderItem={({ item }) => {
           return (
             <View key={item.id} className="mb-2 flex flex-row gap-x-2 rounded-xl bg-white p-4">
-              <Text className={`text-xl font-bold ${item.id === myId ? "text-purple-900" : "text-purple-400"}`}>
+              <Text className={`text-xl font-bold ${item.id === myId ? "text-primary-700" : "text-primary-500"}`}>
                 {item.name}:
               </Text>
-              <Text className="text-xl">{item.points}</Text>
+              <Text className="text-primary-500 text-xl">{item.points}</Text>
             </View>
           );
         }}
