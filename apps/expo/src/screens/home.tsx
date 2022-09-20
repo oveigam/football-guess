@@ -31,6 +31,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
           <Button
             label="New Game"
             onPress={() => {
+              setCode("");
               createGame();
             }}
           />
@@ -45,6 +46,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
             <Button
               label="Join"
               onPress={() => {
+                setCode("");
                 joinLobby({ code: code.toLowerCase() });
               }}
             />
