@@ -21,7 +21,10 @@ const getBaseUrl = () => {
      * you don't have anything else running on it, or you'd have to change it.
      */
     const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
-    if (!localhost) throw new Error("failed to get localhost, configure it manually");
+    if (!localhost) {
+      console.log("failed to get localhost, configure it manually");
+      return `ws://192.168.0.21:4000`;
+    }
     return `ws://${localhost}:4000`;
   } else {
     return `wss://football-guess-production.up.railway.app`;
