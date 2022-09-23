@@ -1,11 +1,7 @@
 import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
 import dayjs from "dayjs";
-import { FC, useMemo } from "react";
-import { FlatList, Text, View } from "react-native";
-import Button from "../common/buttons/Button";
-import { trpc } from "./../../utils/trpc";
-import Guess from "./Guess";
+import { useMemo } from "react";
 
 const pointDistribution = {
   team: 1,
@@ -17,18 +13,14 @@ const pointDistribution = {
   player: 1,
 };
 
-interface Props {
-  gameId: number;
+interface Params {
   guesses: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["guesses"];
   solution: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["solution"];
   gamePlayers: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["gamePlayers"];
-  myId: number;
 }
 
-const GameEnded: FC<Props> = ({ gameId, guesses, myId, solution, gamePlayers }) => {
-  const { mutate: startGame } = trpc.game.startGame.useMutation();
-
-  const puntuaciones = useMemo(() => {
+const useGamePoints = ({ guesses, solution, gamePlayers }: Params) => {
+  return useMemo(() => {
     const pointMap = new Map<number, number>();
     const points = { ...pointDistribution };
     for (const { guess, gamePlayer } of guesses) {
@@ -79,30 +71,6 @@ const GameEnded: FC<Props> = ({ gameId, guesses, myId, solution, gamePlayers }) 
     }
     return gamePlayers.map((p) => ({ ...p, points: pointMap.get(p.id) || 0 })).sort((a, b) => b.points - a.points);
   }, [guesses, solution]);
-
-  return (
-    <View className="flex flex-1 py-2">
-      <Guess solution={guesses[guesses.length - 1].guess} guess={guesses[guesses.length - 1]} />
-      <View className="mb-2 flex items-center">
-        <Button label="Play Again" onPress={() => startGame({ gameId })} />
-      </View>
-      <FlatList
-        className="w-full px-4"
-        keyboardShouldPersistTaps="always"
-        data={puntuaciones}
-        renderItem={({ item }) => {
-          return (
-            <View key={item.id} className="mb-2 flex flex-row gap-x-2 rounded-xl bg-white p-4">
-              <Text className={`text-xl font-bold ${item.id === myId ? "text-primary-700" : "text-primary-500"}`}>
-                {item.name}:
-              </Text>
-              <Text className="text-primary-500 text-xl">{item.points}</Text>
-            </View>
-          );
-        }}
-      />
-    </View>
-  );
 };
 
-export default GameEnded;
+export default useGamePoints;
