@@ -55,7 +55,7 @@ const GameLobby: FC<Props> = ({ game, myId }) => {
         Code: <span className="text-primary-400">{game.code}</span>
       </h1>
       <Button onClick={() => startGame({ gameId: game.id })}>Start Game</Button>
-      <ul className="w-2/3">
+      <ul className="flex w-2/3 flex-col gap-2">
         {game.gamePlayers.map(({ id, name }) => {
           const textColor = myId === id ? "text-primary-700" : "text-primary-400";
           return (

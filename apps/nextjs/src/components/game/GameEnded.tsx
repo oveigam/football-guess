@@ -37,7 +37,7 @@ const GameEnded: FC<Props> = ({ gameId, guesses, solution, gamePlayers, myId }) 
     <div className="flex flex-col items-center justify-center gap-8 pt-2">
       <Guess solution={solution} guess={lastGuess} />
       <Button onClick={() => startGame({ gameId })}>Play Again</Button>
-      <ul className="w-2/3">
+      <ul className="w-2/3 flex flex-col gap-2">
         {points.map(({ id, name, points }) => {
           const textColor = myId === id ? "text-primary-700" : "text-primary-400";
           return (
