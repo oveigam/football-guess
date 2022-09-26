@@ -50,6 +50,7 @@ const Home: NextPage = () => {
           className="w-1/3 "
           href="https://play.google.com/store/apps/details?id=com.oscarinadev.footballguess"
           target="_blank"
+          rel="noreferrer"
         >
           <img draggable={false} className="hover:opacity-75 active:scale-95" src="/google-play-badge.png" />
         </a>
