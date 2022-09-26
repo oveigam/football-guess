@@ -46,10 +46,13 @@ const Home: NextPage = () => {
             <Button onClick={() => joinLobby({ code })}>Join</Button>
           </div>
         </div>
-        <div className="w-1/3">
-          <h6 className="text-center font-semibold text-slate-800">Comming soon</h6>
-          <img draggable={false} className="grayscale" src="/google-play-badge.png" />
-        </div>
+        <a
+          className="w-1/3 "
+          href="https://play.google.com/store/apps/details?id=com.oscarinadev.footballguess"
+          target="_blank"
+        >
+          <img draggable={false} className="hover:opacity-75 active:scale-95" src="/google-play-badge.png" />
+        </a>
       </div>
     </main>
   );
