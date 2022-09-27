@@ -47,3 +47,5 @@ yarn-error.log*
 .turbo
 
 nodemon.json
+
+google-service-account.json
