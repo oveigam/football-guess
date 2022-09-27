@@ -4,11 +4,12 @@ import { FC } from "react";
 import { FlatList, Text, View } from "react-native";
 import Button from "../common/buttons/Button";
 import { trpc } from "./../../utils/trpc";
+import QRCode from "react-native-qrcode-svg";
 
 type UserTextProps = { text: string };
 
-const UserText: FC<UserTextProps> = ({ text }) => <Text className="font-semibold text-primary-500">{text}</Text>;
-const MeText: FC<UserTextProps> = ({ text }) => <Text className="font-bold text-primary-700">{text}</Text>;
+const UserText: FC<UserTextProps> = ({ text }) => <Text className="text-primary-500 font-semibold">{text}</Text>;
+const MeText: FC<UserTextProps> = ({ text }) => <Text className="text-primary-700 font-bold">{text}</Text>;
 
 interface Props {
   game: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>;
@@ -61,25 +62,33 @@ const GameLobby: FC<Props> = ({ game, myId }) => {
   );
 
   return (
-    <View className="flex items-center gap-y-4 py-24">
-      <View className="flex flex-row">
-        <Text className="text-5xl font-bold text-primary-700">Code: </Text>
-        <Text className="text-5xl font-bold text-primary-500">{game.code}</Text>
+    <View className="flex h-full items-center gap-y-2 py-8">
+      <View className="flex flex-row gap-x-2">
+        <QRCode value={game.code} />
+        <View>
+          <Text className="text-primary-600 mb-2 text-xl opacity-60">Game Code</Text>
+          <Text className="text-primary-700 text-7xl font-bold">{game.code}</Text>
+        </View>
       </View>
+      <View className="flex w-full flex-1 items-center">
+        <FlatList
+          className="w-full flex-1"
+          data={game.gamePlayers}
+          renderItem={({ item: { id, name } }) => {
+            return (
+              <View key={id} className="my-1 mx-auto w-5/6 rounded-xl bg-white p-4">
+                {myId === id ? <MeText text={name} /> : <UserText text={name} />}
+              </View>
+            );
+          }}
+        />
+      </View>
+      <Text className="text-primary-600 text-center font-bold opacity-60">
+        {game.gamePlayers.length} player{game.gamePlayers.length > 1 && "s"} on lobby
+      </Text>
       <View>
         <Button label="start game" onPress={() => startGame({ gameId: game.id })} />
       </View>
-      <FlatList
-        className="w-2/3"
-        data={game.gamePlayers}
-        renderItem={({ item: { id, name } }) => {
-          return (
-            <View key={id} className="my-1 rounded-xl bg-white p-4">
-              {myId === id ? <MeText text={name} /> : <UserText text={name} />}
-            </View>
-          );
-        }}
-      />
     </View>
   );
 };

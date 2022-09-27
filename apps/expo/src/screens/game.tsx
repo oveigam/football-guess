@@ -36,11 +36,17 @@ export const GameScreen: FC<ScreenProps<"Game">> = ({ route }) => {
     return null;
   }
   return (
-    <SafeAreaView className="h-full bg-primary-50">
+    <SafeAreaView className="bg-primary-50 h-full">
       {game.status === "Lobby" && <GameLobby game={game} myId={myId} />}
       {game.status === "Playing" && <GameRunning game={game} myId={myId} />}
       {game.status === "Ended" && (
-        <GameEnded guesses={game.guesses} solution={game.solution} myId={myId} gamePlayers={game.gamePlayers} gameId={gameId} />
+        <GameEnded
+          guesses={game.guesses}
+          solution={game.solution}
+          myId={myId}
+          gamePlayers={game.gamePlayers}
+          gameId={gameId}
+        />
       )}
     </SafeAreaView>
   );
