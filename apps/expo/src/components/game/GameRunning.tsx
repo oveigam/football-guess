@@ -45,8 +45,8 @@ const GameRunning: FC<Props> = ({ game, myId }) => {
         nestedScrollEnabled
         keyboardShouldPersistTaps="always"
         data={guesses}
-        renderItem={({ item }) => {
-          return <Guess key={item.id} solution={solution} guess={item} />;
+        renderItem={({ item, index }) => {
+          return <Guess key={item.id} index={index} solution={solution} guess={item} />;
         }}
       />
     </View>
