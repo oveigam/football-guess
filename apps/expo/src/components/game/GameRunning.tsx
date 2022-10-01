@@ -1,6 +1,6 @@
 import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { FlatList, View } from "react-native";
 import { trpc } from "./../../utils/trpc";
 import GamePlayerSearcher from "./GamePlayerSearcher";
@@ -13,6 +13,13 @@ interface Props {
 
 const GameRunning: FC<Props> = ({ game, myId }) => {
   const { guesses, solution } = game;
+
+  const listRef = useRef<FlatList<typeof guesses[number]> | null>();
+
+  const guessCount = guesses.length;
+  useEffect(() => {
+    listRef.current?.scrollToEnd();
+  }, [guessCount]);
 
   const query = trpc.useContext();
 
@@ -41,6 +48,8 @@ const GameRunning: FC<Props> = ({ game, myId }) => {
     <View className="flex-1">
       <GamePlayerSearcher gameId={game.id} myId={myId} solutionCheat={solution.name} />
       <FlatList
+        // @ts-ignore
+        ref={listRef}
         className="w-full"
         nestedScrollEnabled
         keyboardShouldPersistTaps="always"
