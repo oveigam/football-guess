@@ -12,7 +12,7 @@ interface Props {
 const GamePlayerSearcher: FC<Props> = ({ gameId, myId, solutionCheat }) => {
   const [search, setSearch] = useState("");
 
-  const { data: players } = trpc.player.searchPlayer.useQuery({ search });
+  const { data: players } = trpc.player.searchPlayer.useQuery({ search }, { keepPreviousData: true });
 
   const { mutate: makeAGuess } = trpc.game.makeAGuess.useMutation();
 
