@@ -7,6 +7,8 @@ import QrScanner from "../components/qr/QrScanner";
 import { ScreenProps } from "../utils/navigation";
 import { trpc } from "../utils/trpc";
 
+const UPDATE_VERSION = "1.0.4";
+
 export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
   const [scanning, setScanning] = useState(false);
   const [code, setCode] = useState("");
@@ -70,6 +72,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
           </View>
         </View>
       </View>
+      <Text className="absolute bottom-0 right-0 p-2 opacity-20">{UPDATE_VERSION}</Text>
     </SafeAreaView>
   );
 };
