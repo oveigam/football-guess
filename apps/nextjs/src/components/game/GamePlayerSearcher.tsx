@@ -1,16 +1,14 @@
+import { Combobox } from "@headlessui/react";
 import { FC, useState } from "react";
 import { trpc } from "../../utils/trpc";
-import { Combobox } from "@headlessui/react";
-import { inferProcedureOutput } from "@trpc/server";
-import { AppRouter } from "@fooguess/api";
 
 interface Props {
-  gameId: number;
+  code: string;
   myId: number;
   solutionCheat: string;
 }
 
-const GamePlayerSearcher: FC<Props> = ({ gameId, myId, solutionCheat }) => {
+const GamePlayerSearcher: FC<Props> = ({ code, myId, solutionCheat }) => {
   const [search, setSearch] = useState("");
 
   const { data: players } = trpc.player.searchPlayer.useQuery({ search }, { keepPreviousData: true });
@@ -22,7 +20,7 @@ const GamePlayerSearcher: FC<Props> = ({ gameId, myId, solutionCheat }) => {
       <div className="flex justify-between">
         <label className="text-primary-500 ml-1 mb-[1px] text-xs font-semibold">Search player</label>
       </div>
-      <Combobox onChange={(playerId: number) => makeAGuess({ gameId, playerId, myId })}>
+      <Combobox onChange={(playerId: number) => makeAGuess({ code, playerId, userId: myId })}>
         <Combobox.Input
           className="border-primary-500 w-full rounded-xl border px-4 py-2"
           onChange={(event) => setSearch(event.target.value)}

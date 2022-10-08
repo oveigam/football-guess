@@ -12,16 +12,16 @@ const Home: NextPage = () => {
   const [code, setCode] = useState("");
 
   const { mutate: createGame } = trpc.game.createGame.useMutation({
-    onSuccess({ gameId, myId }) {
-      setGameInfo({ gameId, myId });
+    onSuccess({ code, myId }) {
+      setGameInfo({ code, myId });
       setCode("");
       router.push("game");
     },
   });
 
   const { mutate: joinLobby } = trpc.game.joinLobby.useMutation({
-    onSuccess({ gameId, myId }) {
-      setGameInfo({ gameId, myId });
+    onSuccess({ code, myId }) {
+      setGameInfo({ code, myId });
       setCode("");
       router.push("game");
     },

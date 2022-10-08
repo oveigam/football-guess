@@ -1,7 +1,7 @@
 import { atom, useAtom } from "jotai";
 
 type GameInfo = {
-  gameId: number;
+  code: string;
   myId: number;
 };
 

@@ -1,8 +1,7 @@
+import { Position } from ".prisma/client";
 import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
 import { FC, ReactNode } from "react";
-import dayjs from "dayjs";
-import { Position } from ".prisma/client";
 
 function getPos(position: Position) {
   switch (position) {
@@ -41,24 +40,18 @@ const GuessIndicator: FC<IndicatorProps> = ({ label, tooltip, isCorrect, childre
 };
 
 interface Props {
+  user?: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["users"][number];
   solution: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["solution"];
   guess: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["guesses"][number];
 }
 
 const Guess: FC<Props> = ({ solution, guess }) => {
-  const {
-    guess: { team, nationality, position, birth, shirtNumber },
-  } = guess;
-
-  const competition = team.competition;
-
-  const age = dayjs().diff(birth, "years");
-  const solutionAge = dayjs().diff(solution.birth, "years");
+  const { name, photo, nationality, competition, team, position, age, shirtNumber } = guess;
 
   let ageArrow = "";
-  if (age > solutionAge) {
+  if (age > solution.age) {
     ageArrow = "↓";
-  } else if (age < solutionAge) {
+  } else if (age < solution.age) {
     ageArrow = "↑";
   }
 
@@ -71,7 +64,7 @@ const Guess: FC<Props> = ({ solution, guess }) => {
 
   return (
     <li className="flex flex-col gap-1 rounded-xl bg-white p-1 pb-2">
-      <h2 className="text-primary-500 text-center text-2xl font-bold">{guess.guess.name}</h2>
+      <h2 className="text-primary-500 text-center text-2xl font-bold">{name}</h2>
       <div className="flex gap-1">
         <GuessIndicator label="NAT" tooltip={nationality} isCorrect={nationality === solution.nationality}>
           <img
@@ -79,20 +72,16 @@ const Guess: FC<Props> = ({ solution, guess }) => {
             src={`https://countryflagsapi.com/png/${nationality.toLowerCase()}`}
           />
         </GuessIndicator>
-        <GuessIndicator
-          label="LGE"
-          tooltip={competition.name}
-          isCorrect={competition.id === solution.team.competitionId}
-        >
+        <GuessIndicator label="LGE" tooltip={competition.name} isCorrect={competition.id === solution.competition.id}>
           <img className="aspect-square h-full w-full rounded-full" src={competition.emblem} />
         </GuessIndicator>
-        <GuessIndicator label="TEAM" tooltip={team.name} isCorrect={team.id === solution.teamId}>
+        <GuessIndicator label="TEAM" tooltip={team.name} isCorrect={team.id === solution.team.id}>
           <img className="aspect-square h-full w-full rounded-full" src={team.crest} />
         </GuessIndicator>
         <GuessIndicator label="POS" tooltip={position} isCorrect={position === solution.position}>
           <h4 className="text-lg font-bold">{getPos(position)}</h4>
         </GuessIndicator>
-        <GuessIndicator label="AGE" tooltip={birth} isCorrect={age === solutionAge}>
+        <GuessIndicator label="AGE" tooltip={age.toString()} isCorrect={age === solution.age}>
           <h4 className="text-lg font-bold">
             {age}
             {ageArrow}

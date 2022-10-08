@@ -8,22 +8,22 @@ import { useGameInfo } from "../hooks/useGameInfo";
 import { trpc } from "../utils/trpc";
 
 interface Props {
-  gameId: number;
+  code: string;
   myId: number;
 }
 
-const Game: FC<Props> = ({ gameId, myId }) => {
+const Game: FC<Props> = ({ code, myId }) => {
   const query = trpc.useContext();
 
-  const { data: game } = trpc.game.getGame.useQuery({ id: gameId });
+  const { data: game } = trpc.game.getGame.useQuery({ code });
 
   const { mutate: leave } = trpc.game.leaveGame.useMutation();
 
-  trpc.game.gameStarted.useSubscription(
-    { gameId },
+  trpc.game.game.useSubscription(
+    { code },
     {
-      onData() {
-        query.game.getGame.invalidate({ id: gameId });
+      onData(game) {
+        query.game.getGame.setData(() => game, { code });
       },
     },
   );
@@ -36,13 +36,7 @@ const Game: FC<Props> = ({ gameId, myId }) => {
       {game.status === "Lobby" && <GameLobby game={game} myId={myId} />}
       {game.status === "Playing" && <GameRunning game={game} myId={myId} />}
       {game.status === "Ended" && (
-        <GameEnded
-          guesses={game.guesses}
-          solution={game.solution}
-          myId={myId}
-          gamePlayers={game.gamePlayers}
-          gameId={gameId}
-        />
+        <GameEnded guesses={game.guesses} solution={game.solution} myId={myId} users={game.users} code={code} />
       )}
     </>
   );
@@ -61,7 +55,7 @@ const GamePage: NextPage = () => {
   return (
     <main className="bg-primary-50 mx-auto min-h-screen">
       <div className="mx-auto min-h-screen max-w-2xl">
-        {gameInfo && <Game gameId={gameInfo.gameId} myId={gameInfo.myId} />}
+        {gameInfo && <Game code={gameInfo.code} myId={gameInfo.myId} />}
       </div>
     </main>
   );
