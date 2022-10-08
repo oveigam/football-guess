@@ -12,47 +12,27 @@ datasource db {
     referentialIntegrity = "prisma"
 }
 
-model ScraperLog {
-    id      Int       @id @default(autoincrement())
-    start   DateTime  @default(now())
-    end     DateTime?
-    isError Boolean   @default(false)
-    error   Json?
-}
-
-model Area {
-    id   Int    @id
-    name String
-    code String @unique
-    flag String
-
-    competitions Competition[]
-    teams        Team[]
-}
-
 model Competition {
-    id     Int    @id
-    name   String
-    code   String @unique
-    emblem String
+    id       Int    @id @default(autoincrement())
+    name     String @unique
+    fullName String @unique
+    code     String @unique
+    emblem   String
 
-    areaId Int
-
-    area  Area   @relation(fields: [areaId], references: [id])
     teams Team[]
 }
 
 model Team {
-    id        Int    @id
-    name      String
-    shortName String
-    tla       String
-    crest     String
+    id               Int    @id
+    name             String
+    shortName        String
+    tla              String
+    crest            String
+    domesticPrestige Int
+    intPrestige      Int
 
-    areaId        Int
     competitionId Int
 
-    area        Area        @relation(fields: [areaId], references: [id])
     competition Competition @relation(fields: [competitionId], references: [id])
     players     Player[]
 }
@@ -64,65 +44,18 @@ enum Position {
     Offence
 }
 
-model PlayerPhotosTemp {
-    id    Int     @id
-    name  String
-    photo String?
-}
-
 model Player {
     id          Int      @id
     name        String
+    photo       String
     position    Position
-    birth       String
+    age         Int
     nationality String
     shirtNumber Int
-    photo       String?
+    height      Int
+    rating      Int
 
     teamId Int
 
-    team      Team        @relation(fields: [teamId], references: [id])
-    GameGuess GameGuess[]
-    Game      Game[]
-}
-
-enum GameStatus {
-    Lobby
-    Playing
-    Ended
-}
-
-model GamePlayer {
-    id   Int    @id @default(autoincrement())
-    name String
-
-    gameId Int
-
-    game     Game        @relation(fields: [gameId], references: [id])
-    guessess GameGuess[]
-}
-
-model GameGuess {
-    id Int @id @default(autoincrement())
-
-    gameId       Int
-    gamePlayerId Int?
-    guessId      Int
-
-    game       Game        @relation(fields: [gameId], references: [id])
-    gamePlayer GamePlayer? @relation(fields: [gamePlayerId], references: [id])
-    guess      Player      @relation(fields: [guessId], references: [id])
-}
-
-model Game {
-    id     Int        @id @default(autoincrement())
-    code   String     @unique
-    status GameStatus @default(Lobby)
-    rounds Int        @default(5)
-
-    solutionId Int
-
-    solution    Player       @relation(fields: [solutionId], references: [id])
-    gamePlayers GamePlayer[]
-    guesses     GameGuess[]
+    team Team @relation(fields: [teamId], references: [id])
 }

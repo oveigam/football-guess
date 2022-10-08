@@ -7,6 +7,7 @@
   "scripts": {
     "postinstall": "turbo run postinstall",
     "db-push": "npm run db-push -w @fooguess/db",
+    "etl": "npm start -w @fooguess/etl",
     "build:server": "npm run build -w @fooguess/server",
     "start:server": "npm start -w @fooguess/server",
     "build": "turbo run build",

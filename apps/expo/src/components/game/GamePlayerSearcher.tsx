@@ -1,15 +1,15 @@
 import { FC, useState } from "react";
-import { FlatList, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FlatList, Text, TextInput, TouchableOpacity, View, Image } from "react-native";
 import Toast from "react-native-root-toast";
 import { trpc } from "./../../utils/trpc";
 
 interface Props {
-  gameId: number;
+  code: string;
   myId: number;
   solutionCheat: string;
 }
 
-const GamePlayerSearcher: FC<Props> = ({ gameId, myId, solutionCheat }) => {
+const GamePlayerSearcher: FC<Props> = ({ code, myId, solutionCheat }) => {
   const [search, setSearch] = useState("");
 
   const { data: players } = trpc.player.searchPlayer.useQuery({ search }, { keepPreviousData: true });
@@ -44,13 +44,14 @@ const GamePlayerSearcher: FC<Props> = ({ gameId, myId, solutionCheat }) => {
           return (
             <TouchableOpacity
               key={item.id}
-              className="p-4"
+              className="my-auto flex flex-row items-center py-4 px-2"
               onPress={() => {
-                makeAGuess({ gameId, playerId: item.id, myId });
+                makeAGuess({ code, userId: myId, playerId: item.id });
                 setSearch("");
               }}
             >
-              <Text>{item.name}</Text>
+              <Image className="h-[24px] w-[24px]" source={{ uri: item.photo }} />
+              <Text className="leading-none">{item.name}</Text>
             </TouchableOpacity>
           );
         }}

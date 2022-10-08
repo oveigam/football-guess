@@ -7,19 +7,19 @@ import { ScreenProps } from "../utils/navigation";
 import { trpc } from "./../utils/trpc";
 
 export const GameScreen: FC<ScreenProps<"Game">> = ({ route }) => {
-  const { gameId, myId } = route.params;
+  const { code, myId } = route.params;
 
   const query = trpc.useContext();
 
-  const { data: game } = trpc.game.getGame.useQuery({ id: gameId });
+  const { data: game } = trpc.game.getGame.useQuery({ code });
 
   const { mutate: leave } = trpc.game.leaveGame.useMutation();
 
-  trpc.game.gameStarted.useSubscription(
-    { gameId },
+  trpc.game.game.useSubscription(
+    { code },
     {
-      onData() {
-        query.game.getGame.invalidate({ id: gameId });
+      onData(game) {
+        query.game.getGame.setData(() => game, { code });
       },
     },
   );
@@ -27,7 +27,7 @@ export const GameScreen: FC<ScreenProps<"Game">> = ({ route }) => {
   useEffect(() => {
     return () => {
       if (myId) {
-        leave({ gamePlayerId: myId });
+        leave({ code, userId: myId });
       }
     };
   }, [leave, myId]);
@@ -40,13 +40,7 @@ export const GameScreen: FC<ScreenProps<"Game">> = ({ route }) => {
       {game.status === "Lobby" && <GameLobby game={game} myId={myId} />}
       {game.status === "Playing" && <GameRunning game={game} myId={myId} />}
       {game.status === "Ended" && (
-        <GameEnded
-          guesses={game.guesses}
-          solution={game.solution}
-          myId={myId}
-          gamePlayers={game.gamePlayers}
-          gameId={gameId}
-        />
+        <GameEnded guesses={game.guesses} solution={game.solution} myId={myId} users={game.users} code={code} />
       )}
     </SafeAreaView>
   );

@@ -1,0 +1,135 @@
+ID,Name,League,LeagueId,Overall,Attack,Midfield,Defence,TransferBudget,DomesticPrestige,IntPrestige,Players,StartingAverageAge,AllTeamAverageAge,apiId,apiName
+1943,AFC Bournemouth,English Premier League,13,74,75,73,73,0,2,1,28,25.8,25.5,1044,AFC Bournemouth
+1,Arsenal,English Premier League,13,80,83,81,79,0,7,7,29,24.1,23.0,57,Arsenal FC
+2,Aston Villa,English Premier League,13,79,79,78,80,0,5,3,32,25.8,25.2,58,Aston Villa FC
+1925,Brentford,English Premier League,13,75,75,74,75,0,1,1,30,25.4,24.2,402,Brentford FC
+1808,Brighton & Hove Albion,English Premier League,13,76,76,75,77,0,3,2,31,27.6,23.6,397,Brighton & Hove Albion FC
+5,Chelsea,English Premier League,13,84,84,86,84,0,9,8,31,28.1,24.8,61,Chelsea FC
+1799,Crystal Palace,English Premier League,13,76,77,75,76,0,4,2,29,26.6,25.2,354,Crystal Palace FC
+7,Everton,English Premier League,13,78,80,77,75,0,4,4,31,24.7,26.5,62,Everton FC
+144,Fulham,English Premier League,13,76,78,76,74,0,2,1,28,27.6,26.0,63,Fulham FC
+8,Leeds United,English Premier League,13,76,78,76,76,0,3,2,28,24.2,24.3,341,Leeds United FC
+95,Leicester City,English Premier League,13,79,81,80,78,0,6,6,32,26.7,25.7,338,Leicester City FC
+9,Liverpool,English Premier League,13,85,84,82,87,0,9,9,30,26.9,25.7,64,Liverpool FC
+10,Manchester City,English Premier League,13,85,86,86,86,0,10,10,27,27.2,25.4,65,Manchester City FC
+11,Manchester United,English Premier League,13,82,85,83,80,0,8,8,33,25.4,25.2,66,Manchester United FC
+13,Newcastle United,English Premier League,13,78,78,76,79,0,5,3,33,26.6,25.9,67,Newcastle United FC
+14,Nottingham Forest,English Premier League,13,76,75,76,74,0,1,1,33,24.7,25.9,351,Nottingham Forest FC
+17,Southampton,English Premier League,13,75,76,74,75,0,4,3,27,23.6,23.8,340,Southampton FC
+18,Tottenham Hotspur,English Premier League,13,81,84,81,79,0,8,7,29,26.4,25.0,73,Tottenham Hotspur FC
+19,West Ham United,English Premier League,13,80,79,80,78,0,6,5,29,28.1,26.0,563,West Ham United FC
+110,Wolverhampton Wanderers,English Premier League,13,79,79,81,77,0,5,4,33,25.9,23.6,76,Wolverhampton Wanderers FC
+614,AC Ajaccio,French Ligue 1,16,70,71,70,70,0,1,1,28,29.1,28.1,510,AC Ajaccio
+57,AJ Auxerre,French Ligue 1,16,71,73,71,68,0,1,1,30,28.4,26.7,519,AJ Auxerre
+69,AS Monaco,French Ligue 1,16,77,79,77,77,0,8,6,27,24.4,23.6,548,AS Monaco FC
+1530,Angers SCO,French Ligue 1,16,72,73,72,71,0,3,1,31,25.8,24.5,532,Angers SCO
+1815,Clermont Foot 63,French Ligue 1,16,70,69,70,69,0,2,1,27,27.7,25.5,541,Clermont Foot 63
+294,ESTAC Troyes,French Ligue 1,16,72,73,73,69,0,2,1,31,25.8,24.3,531,ES Troyes AC
+217,FC Lorient,French Ligue 1,16,71,68,72,70,0,2,1,27,25.4,23.6,525,FC Lorient
+71,FC Nantes,French Ligue 1,16,74,75,75,73,0,5,2,28,26.8,25.2,543,FC Nantes
+65,LOSC Lille,French Ligue 1,16,75,77,75,75,0,6,4,23,27.6,25.3,521,Lille OSC
+70,Montpellier Hérault SC,French Ligue 1,16,75,74,76,73,0,4,2,28,24.4,24.6,518,Montpellier HSC
+72,OGC Nice,French Ligue 1,16,77,80,76,76,0,6,3,27,27.4,24.9,522,OGC Nice
+66,Olympique Lyonnais,French Ligue 1,16,78,78,79,76,0,8,6,31,25.6,23.8,523,Olympique Lyonnais
+219,Olympique de Marseille,French Ligue 1,16,78,79,77,77,0,8,6,33,28.0,23.4,516,Olympique de Marseille
+73,Paris Saint-Germain,French Ligue 1,16,85,88,82,83,0,10,9,26,27.2,25.8,524,Paris Saint-Germain FC
+76,RC Strasbourg Alsace,French Ligue 1,16,75,77,75,74,0,5,2,24,28.4,26.5,576,RC Strasbourg Alsace
+64,Racing Club de Lens,French Ligue 1,16,75,74,75,74,0,5,2,25,25.6,25.7,546,Racing Club de Lens
+378,Stade Brestois 29,French Ligue 1,16,73,74,74,72,0,3,1,25,27.1,25.0,512,Stade Brestois 29
+74,Stade Rennais FC,French Ligue 1,16,77,77,74,75,0,7,5,26,25.9,23.6,529,Stade Rennais FC 1901
+379,Stade de Reims,French Ligue 1,16,72,72,73,72,0,4,1,28,25.1,23.6,547,Stade de Reims
+1809,Toulouse Football Club,French Ligue 1,16,71,71,71,71,0,2,1,26,25.6,23.7,511,Toulouse FC
+31,1. FC Köln,German 1. Bundesliga,19,74,70,73,75,0,4,3,31,25.4,24.3,1,1. FC Köln
+1831,1. FC Union Berlin,German 1. Bundesliga,19,74,75,73,74,0,3,3,31,27.2,25.7,28,1. FC Union Berlin
+169,1. FSV Mainz 05,German 1. Bundesliga,19,75,74,76,74,0,4,2,28,26.4,24.0,15,1. FSV Mainz 05
+32,Bayer 04 Leverkusen,German 1. Bundesliga,19,80,85,79,80,0,8,6,29,24.8,23.9,3,Bayer 04 Leverkusen
+22,Borussia Dortmund,German 1. Bundesliga,19,81,79,80,82,0,9,7,33,26.4,23.9,4,Borussia Dortmund
+23,Borussia Mönchengladbach,German 1. Bundesliga,19,77,78,77,76,0,5,5,31,26.4,24.7,18,Borussia Mönchengladbach
+1824,Eintracht Frankfurt,German 1. Bundesliga,19,77,78,78,76,0,6,6,31,25.4,24.3,19,Eintracht Frankfurt
+100409,FC Augsburg,German 1. Bundesliga,19,74,73,74,74,0,4,3,30,26.9,25.5,16,FC Augsburg
+21,FC Bayern München,German 1. Bundesliga,19,84,89,85,82,0,10,10,23,26.9,25.8,5,FC Bayern München
+34,FC Schalke 04,German 1. Bundesliga,19,73,74,72,73,0,2,4,29,26.3,25.9,6,FC Schalke 04
+166,Hertha BSC,German 1. Bundesliga,19,74,73,74,73,0,3,4,33,25.2,24.9,9,Hertha BSC
+112172,RB Leipzig,German 1. Bundesliga,19,81,82,81,80,0,8,7,24,26.0,25.1,721,RB Leipzig
+38,SV Werder Bremen,German 1. Bundesliga,19,73,75,71,73,0,2,3,28,27.7,24.2,17,SC Freiburg
+25,Sport-Club Freiburg,German 1. Bundesliga,19,76,74,76,75,0,4,3,28,26.7,25.2,12,SV Werder Bremen
+10029,TSG Hoffenheim,German 1. Bundesliga,19,76,77,76,76,0,5,4,31,26.4,24.8,2,TSG 1899 Hoffenheim
+36,VfB Stuttgart,German 1. Bundesliga,19,74,74,72,73,0,3,4,28,24.0,22.5,10,VfB Stuttgart
+160,VfL Bochum 1848,German 1. Bundesliga,19,73,73,73,73,0,1,1,29,30.0,27.0,36,VfL Bochum 1848
+175,VfL Wolfsburg,German 1. Bundesliga,19,77,77,76,75,0,6,5,29,24.4,24.3,11,VfL Wolfsburg
+1906,AZ Alkmaar,Holland Eredivisie,10,73,74,74,72,0,8,3,27,24.6,22.3,678,AFC Ajax
+245,Ajax,Holland Eredivisie,10,78,80,78,77,0,10,7,28,25.8,24.1,682,AZ
+1971,Excelsior,Holland Eredivisie,10,65,65,66,64,0,1,1,25,24.1,22.8,1914,FC Emmen
+100628,FC Emmen,Holland Eredivisie,10,66,65,66,66,0,2,1,30,25.7,24.4,677,FC Groningen
+1915,FC Groningen,Holland Eredivisie,10,67,69,68,66,0,5,2,27,23.2,22.6,666,FC Twente '65
+1908,FC Twente,Holland Eredivisie,10,70,70,72,70,0,7,2,27,25.6,24.0,676,FC Utrecht
+1903,FC Utrecht,Holland Eredivisie,10,71,73,70,71,0,7,2,30,26.7,24.9,1919,FC Volendam
+645,FC Volendam,Holland Eredivisie,10,65,66,66,63,0,1,1,24,24.3,22.8,675,Feyenoord Rotterdam
+246,Feyenoord,Holland Eredivisie,10,74,73,74,75,0,8,4,28,24.0,22.7,1920,Fortuna Sittard
+634,Fortuna Sittard,Holland Eredivisie,10,70,74,68,70,0,4,1,26,26.6,25.1,718,Go Ahead Eagles
+100632,Go Ahead Eagles,Holland Eredivisie,10,66,63,66,67,0,2,1,27,23.4,23.3,1915,NEC
+1910,N.E.C. Nijmegen,Holland Eredivisie,10,69,68,70,67,0,4,1,26,25.6,23.6,674,PSV
+247,PSV,Holland Eredivisie,10,77,76,76,76,0,9,5,30,24.0,23.7,683,RKC Waalwijk
+1905,RKC Waalwijk,Holland Eredivisie,10,66,66,65,66,0,2,1,26,26.3,25.3,670,SBV Excelsior
+647,SC Cambuur,Holland Eredivisie,10,66,66,67,66,0,2,1,27,24.2,24.4,679,SBV Vitesse
+1913,SC Heerenveen,Holland Eredivisie,10,68,68,67,69,0,5,2,24,25.3,23.1,1909,SC Cambuur-Leeuwarden
+100646,Sparta Rotterdam,Holland Eredivisie,10,67,65,68,66,0,3,1,30,26.9,24.4,673,SC Heerenveen
+1909,Vitesse,Holland Eredivisie,10,69,68,71,68,0,6,2,27,22.1,22.2,6806,Sparta Rotterdam
+47,AC Milan,Italian Serie A,31,81,81,81,81,0,9,7,31,25.3,25.7,98,AC Milan
+111811,AC Monza,Italian Serie A,31,75,75,74,74,0,3,2,33,25.4,26.4,5911,AC Monza
+39,Atalanta,Italian Serie A,31,79,81,79,77,0,7,6,25,27.3,25.7,99,ACF Fiorentina
+189,Bologna,Italian Serie A,31,75,78,74,73,0,4,2,31,27.8,24.3,100,AS Roma
+1746,Empoli,Italian Serie A,31,73,74,73,72,0,2,1,28,25.2,24.4,102,Atalanta BC
+110374,Fiorentina,Italian Serie A,31,77,77,77,77,0,6,5,28,26.2,25.3,103,Bologna FC 1909
+206,Hellas Verona,Italian Serie A,31,75,74,76,74,0,3,1,30,27.3,25.2,445,Empoli FC
+44,Inter,Italian Serie A,31,83,85,83,83,0,9,7,26,27.7,27.9,108,FC Internazionale Milano
+45,Juventus,Italian Serie A,31,82,84,81,82,0,10,9,30,28.6,25.9,450,Hellas Verona FC
+46,Lazio,Italian Serie A,31,79,80,80,77,0,7,6,24,28.4,26.7,109,Juventus FC
+347,Lecce,Italian Serie A,31,71,72,69,73,0,2,1,33,24.8,23.2,110,SS Lazio
+48,Napoli,Italian Serie A,31,79,79,81,79,0,9,7,25,26.4,25.6,113,SSC Napoli
+52,Roma,Italian Serie A,31,80,81,80,80,0,8,7,29,27.1,25.2,488,Spezia Calcio
+110741,Spezia,Italian Serie A,31,72,73,72,72,0,1,1,27,26.0,24.4,586,Torino FC
+54,Torino F.C.,Italian Serie A,31,74,75,75,73,0,5,4,28,25.4,23.8,584,UC Sampdoria
+1837,U.C. Sampdoria,Italian Serie A,31,74,76,72,73,0,4,3,27,28.0,26.9,457,US Cremonese
+111974,U.S. Sassuolo Calcio,Italian Serie A,31,75,73,77,73,0,4,3,31,25.6,24.4,5890,US Lecce
+111434,US Cremonese,Italian Serie A,31,72,73,72,70,0,1,1,31,25.6,24.8,455,US Salernitana 1919
+110373,US Salernitana 1919,Italian Serie A,31,74,75,75,72,0,3,1,32,28.2,25.8,471,US Sassuolo Calcio
+55,Udinese Calcio,Italian Serie A,31,75,77,73,74,0,4,3,26,26.4,25.4,115,Udinese Calcio
+1898,Boavista FC,Portuguese Liga ZON SAGRES,308,69,69,70,69,0,5,1,29,27.4,24.5,810,Boavista FC
+114510,Casa Pia,Portuguese Liga ZON SAGRES,308,68,69,70,67,0,1,1,26,27.8,26.7,5530,CD Santa Clara
+1893,Clube Sport Marítimo,Portuguese Liga ZON SAGRES,308,70,72,69,71,0,5,1,30,26.8,24.7,5575,CS Marítimo
+10020,Estoril Praia,Portuguese Liga ZON SAGRES,308,69,67,69,70,0,4,1,26,24.4,23.4,6618,Casa Pia AC
+112513,FC Arouca,Portuguese Liga ZON SAGRES,308,68,66,69,68,0,2,1,26,26.3,25.4,712,FC Arouca
+1892,FC Paços de Ferreira,Portuguese Liga ZON SAGRES,308,69,68,70,68,0,5,1,27,27.4,24.7,5531,FC Famalicão
+236,FC Porto,Portuguese Liga ZON SAGRES,308,77,79,78,76,0,10,7,30,26.9,25.5,507,FC Paços de Ferreira
+111539,FC Vizela,Portuguese Liga ZON SAGRES,308,69,68,69,68,0,2,1,29,24.4,23.9,503,FC Porto
+112809,Futebol Clube de Famalicão,Portuguese Liga ZON SAGRES,308,70,67,70,70,0,4,1,28,24.6,23.7,5589,FC Vizela
+518,GD Chaves,Portuguese Liga ZON SAGRES,308,68,66,67,68,0,2,1,29,27.0,25.1,1103,GD Chaves
+1888,Gil Vicente FC,Portuguese Liga ZON SAGRES,308,71,73,69,70,0,4,1,29,25.4,25.0,582,GD Estoril Praia
+10031,Portimonense SC,Portuguese Liga ZON SAGRES,308,69,68,69,68,0,3,1,27,24.7,24.1,5533,Gil Vicente FC
+744,Rio Ave FC,Portuguese Liga ZON SAGRES,308,70,70,70,69,0,3,2,27,26.6,26.0,5601,Portimonense SC
+1896,SC Braga,Portuguese Liga ZON SAGRES,308,75,74,76,73,0,8,3,29,25.6,23.7,496,Rio Ave FC
+234,SL Benfica,Portuguese Liga ZON SAGRES,308,78,78,78,78,0,10,6,30,25.9,25.2,1903,Sport Lisboa e Benfica
+1438,Santa Clara,Portuguese Liga ZON SAGRES,308,68,70,67,69,0,4,1,30,26.0,24.2,5613,Sporting Clube de Braga
+237,Sporting CP,Portuguese Liga ZON SAGRES,308,78,78,76,78,0,9,4,30,26.0,23.5,498,Sporting Clube de Portugal
+1887,Vitória de Guimarães,Portuguese Liga ZON SAGRES,308,70,70,70,69,0,7,2,30,24.8,23.3,5543,Vitória SC
+448,Athletic Club de Bilbao,Spain Primera Division,53,79,80,77,78,0,7,5,30,26.3,25.9,77,Athletic Club
+240,Atlético de Madrid,Spain Primera Division,53,83,82,82,80,0,9,9,33,28.3,25.3,79,CA Osasuna
+479,CA Osasuna,Spain Primera Division,53,76,76,76,75,0,5,1,32,28.4,25.8,78,Club Atlético de Madrid
+1968,Cádiz CF,Spain Primera Division,53,75,75,75,75,0,4,1,33,30.2,26.7,264,Cádiz CF
+468,Elche CF,Spain Primera Division,53,74,75,74,73,0,2,1,30,29.1,26.6,285,Elche CF
+241,FC Barcelona,Spain Primera Division,53,84,84,85,82,0,10,10,33,25.8,24.0,81,FC Barcelona
+1860,Getafe CF,Spain Primera Division,53,77,76,78,76,0,5,4,28,26.7,26.0,82,Getafe CF
+110062,Girona FC,Spain Primera Division,53,74,76,75,71,0,1,1,32,27.4,24.5,298,Girona FC
+450,RC Celta de Vigo,Spain Primera Division,53,77,79,77,77,0,6,4,33,27.7,24.2,558,RC Celta de Vigo
+452,RCD Espanyol de Barcelona,Spain Primera Division,53,75,80,76,74,0,5,3,33,27.9,23.9,80,RCD Espanyol de Barcelona
+453,RCD Mallorca,Spain Primera Division,53,74,74,74,74,0,3,1,32,27.8,26.1,89,RCD Mallorca
+480,Rayo Vallecano,Spain Primera Division,53,75,76,75,75,0,3,1,29,29.0,27.1,87,Rayo Vallecano de Madrid
+449,Real Betis Balompié,Spain Primera Division,53,79,81,80,77,0,6,3,32,29.2,27.0,90,Real Betis Balompié
+243,Real Madrid CF,Spain Primera Division,53,85,85,85,84,0,10,10,33,28.4,24.6,86,Real Madrid CF
+457,Real Sociedad,Spain Primera Division,53,78,77,79,78,0,7,4,31,25.7,24.1,92,Real Sociedad de Fútbol
+462,Real Valladolid CF,Spain Primera Division,53,75,74,74,74,0,4,1,32,27.4,25.8,250,Real Valladolid CF
+481,Sevilla FC,Spain Primera Division,53,81,81,81,80,0,8,8,30,30.4,27.1,559,Sevilla FC
+1861,Unión Deportiva Almería,Spain Primera Division,53,74,74,73,72,0,2,1,31,25.4,24.6,267,UD Almería
+461,Valencia CF,Spain Primera Division,53,76,78,74,77,0,7,6,33,24.6,22.9,95,Valencia CF
+483,Villarreal CF,Spain Primera Division,53,80,82,80,80,0,8,7,25,28.7,27.6,94,Villarreal CF

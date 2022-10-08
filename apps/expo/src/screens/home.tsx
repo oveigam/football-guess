@@ -13,17 +13,19 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
   const [scanning, setScanning] = useState(false);
   const [code, setCode] = useState("");
 
-  const { mutate: createGame } = trpc.game.createGame.useMutation({
-    onSuccess({ gameId, myId }) {
-      navigation.navigate("Game", { gameId, myId });
+  const { mutate: createGame, isLoading: isCreating } = trpc.game.createGame.useMutation({
+    onSuccess({ code, myId }) {
+      navigation.navigate("Game", { code, myId });
     },
   });
 
-  const { mutate: joinLobby } = trpc.game.joinLobby.useMutation({
-    onSuccess({ gameId, myId }) {
-      navigation.navigate("Game", { gameId, myId });
+  const { mutate: joinLobby, isLoading: isJoinning } = trpc.game.joinLobby.useMutation({
+    onSuccess({ code, myId }) {
+      navigation.navigate("Game", { code, myId });
     },
   });
+
+  const isLoading = isCreating || isJoinning;
 
   return (
     <SafeAreaView className="bg-primary-50 h-full">
@@ -36,6 +38,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
         <View className="mb-24">
           <Button
             label="New Game"
+            disabled={isLoading}
             onPress={() => {
               setCode("");
               createGame();
@@ -52,6 +55,7 @@ export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
             <View>
               <Button
                 label="Join Game"
+                disabled={isLoading}
                 onPress={() => {
                   setCode("");
                   joinLobby({ code: code.toLowerCase() });

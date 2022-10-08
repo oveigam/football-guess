@@ -2,7 +2,7 @@ import { appRouter, createContext } from "@fooguess/api";
 import { createHTTPServer } from "@trpc/server/adapters/standalone";
 import { applyWSSHandler } from "@trpc/server/adapters/ws";
 import ws from "ws";
-import { scheduleFootballDataScrape } from "./src/scheduler";
+import { gameCleanUpScheluder } from "./src/scheduler";
 
 // http server
 const { server, listen } = createHTTPServer({
@@ -21,7 +21,7 @@ wss.on("connection", (ws) => {
 applyWSSHandler({ wss, router: appRouter, createContext });
 
 // schdulers
-scheduleFootballDataScrape();
+gameCleanUpScheluder();
 
 // server start listening
 const port = process.env.PORT ? Number(process.env.PORT) : 4000;

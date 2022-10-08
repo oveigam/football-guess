@@ -2,7 +2,6 @@ import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
 import { FC, useEffect, useRef } from "react";
 import { FlatList, View } from "react-native";
-import { trpc } from "./../../utils/trpc";
 import GamePlayerSearcher from "./GamePlayerSearcher";
 import Guess from "./Guess";
 
@@ -21,32 +20,9 @@ const GameRunning: FC<Props> = ({ game, myId }) => {
     listRef.current?.scrollToEnd();
   }, [guessCount]);
 
-  const query = trpc.useContext();
-
-  trpc.game.guessMade.useSubscription(
-    { gameId: game.id },
-    {
-      onData({ guesses, status }) {
-        if (status === "Ended") {
-        }
-        query.game.getGame.setData(
-          (old) => {
-            if (!old) return null;
-            return {
-              ...old,
-              status,
-              guesses,
-            };
-          },
-          { id: game.id },
-        );
-      },
-    },
-  );
-
   return (
     <View className="flex-1">
-      <GamePlayerSearcher gameId={game.id} myId={myId} solutionCheat={solution.name} />
+      <GamePlayerSearcher code={game.code} myId={myId} solutionCheat={solution.name} />
       <FlatList
         // @ts-ignore
         ref={listRef}
@@ -54,8 +30,9 @@ const GameRunning: FC<Props> = ({ game, myId }) => {
         nestedScrollEnabled
         keyboardShouldPersistTaps="always"
         data={guesses}
-        renderItem={({ item, index }) => {
-          return <Guess key={item.id} index={index} solution={solution} guess={item} />;
+        renderItem={({ item }) => {
+          const user = game.users.find(({ id }) => id === item.userId);
+          return <Guess key={item.id} user={user} solution={solution} guess={item} />;
         }}
       />
     </View>

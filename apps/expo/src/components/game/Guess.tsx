@@ -1,7 +1,6 @@
 import { Position } from ".prisma/client";
 import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
-import dayjs from "dayjs";
 import { FC, ReactNode } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import Toast from "react-native-root-toast";
@@ -57,40 +56,19 @@ function getPos(position: Position) {
   }
 }
 
-function getElementPos(index: number) {
-  switch (index) {
-    case 0:
-      return "1st";
-    case 1:
-      return "2nd";
-    case 2:
-      return "3rd";
-
-    default:
-      return `${index + 1}th`;
-  }
-}
-
 interface Props {
-  index?: number;
+  user?: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["users"][number];
   solution: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["solution"];
   guess: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["guesses"][number];
 }
 
-const Guess: FC<Props> = ({ solution, guess, index }) => {
-  const {
-    guess: { team, nationality, position, birth, shirtNumber },
-  } = guess;
-
-  const competition = team.competition;
-
-  const age = dayjs().diff(birth, "years");
-  const solutionAge = dayjs().diff(solution.birth, "years");
+const Guess: FC<Props> = ({ solution, guess, user }) => {
+  const { name, photo, nationality, competition, team, position, age, shirtNumber } = guess;
 
   let ageArrow = "";
-  if (age > solutionAge) {
+  if (age > solution.age) {
     ageArrow = "↓";
-  } else if (age < solutionAge) {
+  } else if (age < solution.age) {
     ageArrow = "↑";
   }
 
@@ -103,12 +81,11 @@ const Guess: FC<Props> = ({ solution, guess, index }) => {
 
   return (
     <View className="mx-2 mb-2 flex rounded-xl bg-white px-1 pb-1">
-      {index !== undefined && (
-        <View className="relative">
-          <Text className="absolute top-1 left-1 font-semibold">{getElementPos(index)}</Text>
-        </View>
-      )}
-      <Text className="text-primary-600 mb-0.5 text-center text-2xl font-bold">{guess.guess.name}</Text>
+      <View className="mb-1 flex flex-row items-end gap-x-2">
+        <Image className="h-[50px] w-[50px]" source={{ uri: photo }} />
+        <Text className="text-primary-600 mb-0.5 flex-1 text-2xl font-bold">{name}</Text>
+        <Text className="mb-auto p-2 font-semibold opacity-40">{user?.name}</Text>
+      </View>
       <View className="flex flex-row">
         <GuessIndicator label="NAT" toast={nationality} isCorrect={nationality === solution.nationality}>
           <Image
@@ -116,16 +93,16 @@ const Guess: FC<Props> = ({ solution, guess, index }) => {
             source={{ uri: `https://countryflagsapi.com/png/${nationality.toLowerCase()}` }}
           />
         </GuessIndicator>
-        <GuessIndicator label="LGE" toast={competition.name} isCorrect={competition.id === solution.team.competitionId}>
+        <GuessIndicator label="LGE" toast={competition.name} isCorrect={competition.id === solution.competition.id}>
           <Crest url={competition.emblem} />
         </GuessIndicator>
-        <GuessIndicator label="TEAM" toast={team.name} isCorrect={team.id === solution.teamId}>
+        <GuessIndicator label="TEAM" toast={team.name} isCorrect={team.id === solution.team.id}>
           <Crest url={team.crest} />
         </GuessIndicator>
         <GuessIndicator label="POS" toast={position} isCorrect={position === solution.position}>
           <Text className="text-lg font-bold">{getPos(position)}</Text>
         </GuessIndicator>
-        <GuessIndicator label="AGE" toast={birth} isCorrect={age === solutionAge}>
+        <GuessIndicator label="AGE" toast={age.toString()} isCorrect={age === solution.age}>
           <Text className="text-lg font-bold">
             {age}
             {ageArrow}

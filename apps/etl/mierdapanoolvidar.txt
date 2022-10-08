@@ -1,0 +1,38 @@
+
+const leagueOrderInCsv = [
+  "Spain Primera Division",
+  "Portuguese Liga ZON SAGRES",
+  "Italian Serie A",
+  "Holland Eredivisie",
+  "German 1. Bundesliga",
+  "French Ligue 1",
+  "English Premier League",
+];
+
+  const [teams, competitions] = await Promise.all([footballApi.getTeams(), prisma.competition.findMany()]);
+
+  const ordered = teams
+    .map((t) => {
+      const name = competitions.find((c) => c.name === t.leagueName);
+      if (!name) {
+        throw new Error();
+      }
+      return {
+        ...t,
+        leagueName: name.fullName,
+      };
+    })
+    .sort((a, b) => {
+      const leagueOrder =
+        leagueOrderInCsv.findIndex((name) => name === b.leagueName) -
+        leagueOrderInCsv.findIndex((name) => name === a.leagueName);
+      if (leagueOrder !== 0) {
+        return leagueOrder;
+      }
+      return a.name > b.name ? 1 : -1;
+    })
+    .map(({ id, name }) => `${id},${name}`);
+
+  for (const extra of ordered) {
+    console.log(extra);
+  }

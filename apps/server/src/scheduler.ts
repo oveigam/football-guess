@@ -1,15 +1,9 @@
-import { prisma } from "@fooguess/db";
+import { GameFactory } from "@fooguess/api/src/game/Game";
 import cron from "node-cron";
-import { scrapeFootballData } from "./scraper";
 
-export const scheduleFootballDataScrape = async () => {
-  // Cron job a las 6 de la mañana
-  cron.schedule("0 6 * * *", async () => {
-    const ongoingScrape = await prisma.scraperLog.findFirst({
-      where: { end: null },
-    });
-    if (!ongoingScrape) {
-      await scrapeFootballData();
-    }
+export const gameCleanUpScheluder = async () => {
+  // Cron job cada 10 minutes
+  cron.schedule("*/10 * * * *", () => {
+    GameFactory.gameCleanUp();
   });
 };
