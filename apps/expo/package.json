@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/_app.tsx",
   "scripts": {
+    "submit:android": "eas build --platform android --auto-submit",
     "start": "expo start",
     "dev": "set ENVIRONMENT=dev&& expo start",
     "dev:clear": "set ENVIRONMENT=dev&& expo start --clear",
