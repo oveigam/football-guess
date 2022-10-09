@@ -4,6 +4,7 @@ import { FC, useEffect, useRef } from "react";
 import { FlatList, View } from "react-native";
 import GamePlayerSearcher from "./GamePlayerSearcher";
 import Guess from "./Guess";
+import HealthIndicator from "./HealthIndicator";
 
 interface Props {
   game: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>;
@@ -20,9 +21,11 @@ const GameRunning: FC<Props> = ({ game, myId }) => {
     listRef.current?.scrollToEnd();
   }, [guessCount]);
 
+  const me = game.users.find(({ id }) => myId === id);
+
   return (
     <View className="flex-1">
-      <GamePlayerSearcher code={game.code} myId={myId} solutionCheat={solution.name} />
+      <GamePlayerSearcher code={game.code} myId={myId} solutionCheat={solution.name} health={me?.lives || 0} />
       <FlatList
         // @ts-ignore
         ref={listRef}

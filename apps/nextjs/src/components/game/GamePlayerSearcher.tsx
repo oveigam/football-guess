@@ -16,7 +16,7 @@ const GamePlayerSearcher: FC<Props> = ({ code, myId, solutionCheat }) => {
   const { mutate: makeAGuess } = trpc.game.makeAGuess.useMutation();
 
   return (
-    <div className="relative w-5/6">
+    <div className="relative w-full">
       <label className="text-primary-50 text-xs">{solutionCheat}</label>
       <div className="flex justify-between">
         <label className="text-primary-500 ml-1 mb-[1px] text-xs font-semibold">Search player</label>
