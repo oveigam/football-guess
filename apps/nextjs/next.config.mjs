@@ -18,5 +18,7 @@ export default withTM(["@fooguess/api", "@fooguess/db"])(
   defineNextConfig({
     reactStrictMode: true,
     swcMinify: true,
-  })
+    images: { domains: ["cdn.sofifa.net"] },
+    experimental: { images: { allowFutureImage: true } },
+  }),
 );

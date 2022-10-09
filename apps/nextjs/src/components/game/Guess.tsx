@@ -1,6 +1,7 @@
 import { Position } from ".prisma/client";
 import { AppRouter } from "@fooguess/api";
 import { inferProcedureOutput } from "@trpc/server";
+import Image from "next/future/image";
 import { FC, ReactNode } from "react";
 
 function getPos(position: Position) {
@@ -45,7 +46,7 @@ interface Props {
   guess: NonNullable<inferProcedureOutput<AppRouter["game"]["getGame"]>>["guesses"][number];
 }
 
-const Guess: FC<Props> = ({ solution, guess }) => {
+const Guess: FC<Props> = ({ solution, guess, user }) => {
   const { name, photo, nationality, competition, team, position, age, shirtNumber } = guess;
 
   let ageArrow = "";
@@ -64,7 +65,11 @@ const Guess: FC<Props> = ({ solution, guess }) => {
 
   return (
     <li className="flex flex-col gap-1 rounded-xl bg-white p-1 pb-2">
-      <h2 className="text-primary-500 text-center text-2xl font-bold">{name}</h2>
+      <div className="mb-1 flex items-end gap-2">
+        <Image width={50} height={50} src={photo} />
+        <h2 className="text-primary-500 text-center text-2xl font-bold">{name}</h2>
+        <caption className="ml-auto self-start pt-0.5 pr-2 font-semibold opacity-50">{user?.name}</caption>
+      </div>
       <div className="flex gap-1">
         <GuessIndicator label="NAT" tooltip={nationality} isCorrect={nationality === solution.nationality}>
           <img

@@ -83,7 +83,7 @@ const Guess: FC<Props> = ({ solution, guess, user }) => {
     <View className="mx-2 mb-2 flex rounded-xl bg-white px-1 pb-1">
       <View className="mb-1 flex flex-row items-end gap-x-2">
         <Image className="h-[50px] w-[50px]" source={{ uri: photo }} />
-        <Text className="text-primary-600 mb-0.5 flex-1 text-2xl font-bold">{name}</Text>
+        <Text className="text-primary-600 mb-0.5 flex-1 text-2xl font-bold md:text-xl">{name}</Text>
         <Text className="mb-auto p-2 font-semibold opacity-40">{user?.name}</Text>
       </View>
       <View className="flex flex-row">

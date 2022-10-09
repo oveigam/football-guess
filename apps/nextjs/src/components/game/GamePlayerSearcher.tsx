@@ -1,4 +1,5 @@
 import { Combobox } from "@headlessui/react";
+import Image from "next/future/image";
 import { FC, useState } from "react";
 import { trpc } from "../../utils/trpc";
 
@@ -22,10 +23,11 @@ const GamePlayerSearcher: FC<Props> = ({ code, myId, solutionCheat }) => {
       </div>
       <Combobox onChange={(playerId: number) => makeAGuess({ code, playerId, userId: myId })}>
         <Combobox.Input
+          autoComplete="off"
           className="border-primary-500 w-full rounded-xl border px-4 py-2"
           onChange={(event) => setSearch(event.target.value)}
         />
-        <Combobox.Options className="border-primary-500 absolute mt-1 w-full rounded-xl border bg-white p-2">
+        <Combobox.Options className="border-primary-500 absolute z-40 mt-1 max-h-56 w-full overflow-x-auto rounded-xl border bg-white p-2">
           {players?.map((player, index) => (
             <Combobox.Option
               key={player.id}
@@ -34,7 +36,8 @@ const GamePlayerSearcher: FC<Props> = ({ code, myId, solutionCheat }) => {
               }`}
               value={player.id}
             >
-              {player.name}
+              <Image width={24} height={24} src={player.photo} />
+              <span>{player.name}</span>
             </Combobox.Option>
           ))}
         </Combobox.Options>
