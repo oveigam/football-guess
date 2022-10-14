@@ -58,9 +58,9 @@ const Guess: FC<Props> = ({ solution, guess, user }) => {
 
   let shirtArrow = "";
   if (shirtNumber > solution.shirtNumber) {
-    shirtArrow = "↑";
-  } else if (shirtNumber < solution.shirtNumber) {
     shirtArrow = "↓";
+  } else if (shirtNumber < solution.shirtNumber) {
+    shirtArrow = "↑";
   }
 
   return (
