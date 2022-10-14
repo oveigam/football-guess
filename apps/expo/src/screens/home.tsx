@@ -7,7 +7,7 @@ import QrScanner from "../components/qr/QrScanner";
 import { ScreenProps } from "../utils/navigation";
 import { trpc } from "../utils/trpc";
 
-const UPDATE_VERSION = "1.0.4";
+const UPDATE_VERSION = "1.0.5";
 
 export const HomeScreen: FC<ScreenProps<"Home">> = ({ navigation }) => {
   const [scanning, setScanning] = useState(false);
