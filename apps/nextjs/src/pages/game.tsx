@@ -19,6 +19,12 @@ const Game: FC<Props> = ({ code, myId }) => {
 
   const { mutate: leave } = trpc.game.leaveGame.useMutation();
 
+  useEffect(() => {
+    () => {
+      leave({ code, userId: myId });
+    };
+  }, [code, myId, leave]);
+
   trpc.game.game.useSubscription(
     { code },
     {
