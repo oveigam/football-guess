@@ -2,7 +2,7 @@ import { Position } from ".prisma/client";
 import { observable } from "@trpc/server/observable";
 import { z } from "zod";
 import { ee } from "../event-emitter";
-import { Game, GameFactory, GameStatus, Guess, User } from "../game/Game";
+import { Game, GameFactory } from "../game/Game";
 import { t } from "../trpc";
 
 export const gameRouter = t.router({
