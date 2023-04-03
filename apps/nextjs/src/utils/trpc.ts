@@ -12,7 +12,7 @@ function getEndingLink() {
   }
 
   const client = createWSClient({
-    url: `${process.env.NEXT_PUBLIC_WS_PROTOCOL}://${process.env.NEXT_PUBLIC_SERVER_URL}`,
+    url: `${process.env.NEXT_PUBLIC_WS_PROTOCOL}://${process.env.NEXT_PUBLIC_SERVER_URL}/trpc`,
   });
   return wsLink<AppRouter>({
     client,

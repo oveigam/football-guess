@@ -17,11 +17,7 @@ interface Props {
 }
 
 const GameLobby: FC<Props> = ({ game, myId }) => {
-  const { mutate: startGame } = trpc.game.startGame.useMutation({
-    onError(err) {
-      console.log(err);
-    },
-  });
+  const { mutate: startGame } = trpc.game.startGame.useMutation({});
 
   return (
     <View className="flex h-full items-center gap-y-2 py-8">
