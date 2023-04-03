@@ -23,7 +23,7 @@ const getBaseUrl = () => {
     const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
     if (!localhost) {
       console.log("failed to get localhost, configure it manually");
-      return `ws://192.168.0.21:4000`;
+      return `ws://192.168.1.21:4000`;
     }
     return `ws://${localhost}:4000`;
   } else {

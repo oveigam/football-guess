@@ -4,6 +4,9 @@ import { applyWSSHandler } from "@trpc/server/adapters/ws";
 import ws from "ws";
 import { gameCleanUpScheluder } from "./src/scheduler";
 
+import { config } from "dotenv";
+config();
+
 // http server
 const { server, listen } = createHTTPServer({
   router: appRouter,
