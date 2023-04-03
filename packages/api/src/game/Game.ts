@@ -1,6 +1,6 @@
 import { Position } from ".prisma/client";
 import { prisma } from "@fooguess/db";
-import { customAlphabet } from "nanoid";
+import { customAlphabet } from "nanoid"; // No actualices a 4.0 o da errores!!
 
 const nanoid = customAlphabet("1234567890abcdefghyjklmnopqrstuvwxyz", 4);
 

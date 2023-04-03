@@ -1,6 +1,6 @@
 import type { AppRouter } from "@fooguess/api";
 import { createWSClient, wsLink } from "@trpc/client";
-import { createTRPCReact } from "@trpc/react";
+import { createTRPCReact } from "@trpc/react-query";
 /**
  * A set of typesafe hooks for consuming your API.
  */
@@ -23,11 +23,11 @@ const getBaseUrl = () => {
     const localhost = Constants.manifest?.debuggerHost?.split(":")[0];
     if (!localhost) {
       // console.log("failed to get localhost, configure it manually");
-      return `ws://192.168.1.21:4000/trpc`;
+      return `ws://192.168.1.21:4000`;
     }
-    return `ws://${localhost}:4000/trpc`;
+    return `ws://${localhost}:4000`;
   } else {
-    return `wss://football-guess-production.up.railway.app/trpc`;
+    return `wss://football-guess-production.up.railway.app`;
   }
 };
 
