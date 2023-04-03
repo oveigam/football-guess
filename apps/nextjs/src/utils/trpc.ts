@@ -2,7 +2,7 @@ import type { AppRouter } from "@fooguess/api";
 import { transformer } from "@fooguess/api/transformer";
 import { httpBatchLink } from "@trpc/client/links/httpBatchLink";
 import { createWSClient, wsLink } from "@trpc/client/links/wsLink";
-import { setupTRPC } from "@trpc/next";
+import { createTRPCNext } from "@trpc/next";
 
 function getEndingLink() {
   if (typeof window === "undefined") {
@@ -19,7 +19,7 @@ function getEndingLink() {
   });
 }
 
-export const trpc = setupTRPC<AppRouter>({
+export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
       links: [getEndingLink()],

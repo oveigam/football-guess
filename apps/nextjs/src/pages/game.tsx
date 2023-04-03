@@ -29,7 +29,7 @@ const Game: FC<Props> = ({ code, myId }) => {
     { code },
     {
       onData(game) {
-        query.game.getGame.setData(() => game, { code });
+        query.game.getGame.setData({ code }, game);
       },
     },
   );

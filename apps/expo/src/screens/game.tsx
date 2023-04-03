@@ -19,7 +19,7 @@ export const GameScreen: FC<ScreenProps<"Game">> = ({ route }) => {
     { code },
     {
       onData(game) {
-        query.game.getGame.setData(() => game, { code });
+        query.game.getGame.setData({ code }, game);
       },
     },
   );

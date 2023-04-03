@@ -1,6 +1,6 @@
 import type { AppRouter } from "@fooguess/api";
 import { createWSClient, wsLink } from "@trpc/client";
-import { createTRPCReact } from "@trpc/react";
+import { createTRPCReact } from "@trpc/react-query";
 /**
  * A set of typesafe hooks for consuming your API.
  */

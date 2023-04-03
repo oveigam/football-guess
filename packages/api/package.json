@@ -6,13 +6,13 @@
   "license": "MIT",
   "dependencies": {
     "@fooguess/db": "*",
-    "@trpc/client": "10.0.0-proxy-alpha.64",
-    "@trpc/server": "10.0.0-proxy-alpha.64",
-    "nanoid": "^3.3.4",
-    "superjson": "^1.9.1",
-    "zod": "^3.18.0"
+    "@trpc/client": "10.18.0",
+    "@trpc/server": "10.18.0",
+    "nanoid": "3.3.6",
+    "superjson": "^1.12.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
-    "typescript": "4.8.2"
+    "typescript": "5.0.3"
   }
 }
